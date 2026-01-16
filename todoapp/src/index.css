@@ -18,6 +18,8 @@
 
   user-select: none;
 
+  overflow-x: hidden;
+
 }
 
 main{
@@ -115,54 +117,78 @@ input:focus{
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width:800px;
+  width:850px;
 }
 
 .itempc{
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: all .5s ease-in;
 }
 
+.itempc > div{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 900px;
+  gap:10px;
+}
+
+
 .card{
+  box-sizing: border-box; 
   border: solid #1a1a1a 2px;
+  background-color: black;
   border-radius: 7.5px;
-  transition: border-color .25s;
-  padding: 0 15px;
+  transition: border-color .25s, width .5s;
+  padding: 0 50px;
   min-height: 50px;
-  width: 700px;
+  width: 100%;
   overflow-wrap: break-word; 
+  z-index: 1;
 }
 
 .card:hover{ border-color: rgb(255,0,0,.5); }
 
-.itempc:hover .numeracaoCard {
-  opacity: .5;
+.itempc:hover .numeracaoCard { opacity: .5; }
+.itempc:hover .imagemCopiar { 
+  opacity: .8; 
+}
+.itempc:hover .card { 
+  width: 94%;
+  padding: 0 15px;
 }
 
 .card:hover p{ text-shadow: #ffffff 0 0 15px; } 
 
 .card > p{
   font-weight: lighter;
+  z-index: 2;
   transition: text-shadow .5s;
 }
 
 .numeracaoCard{
   min-height: 5px;
   color:rgb(255,255,255);
-  flex-grow: .025;
-  font-size: 20px;
+  font-size: 15px;
   opacity: .1;
   transition: opacity .5s;
+  padding: 0px 15px;
 }
 
 .imagemCopiar{
+  position: absolute;
+  right: 0;
   max-width: 25px;
   max-height: 25px;
   filter: invert(50%);
   flex-grow: .025;
-  transition: filter .25s;
+  transition: opacity 1s, filter .25s;
+  opacity: 0;
+  z-index: 0;
+  flex-grow: 0;
 }
 
 .imagemCopiar:hover{
@@ -181,6 +207,8 @@ input:focus{
   height: 40px;
   width: 100%;
   border-bottom: 1px solid rgb(255,255,255,0.5);
+  background-color: black;
+  z-index: 9999;
 }
 
 .Header > .titulo{

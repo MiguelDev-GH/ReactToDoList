@@ -12,8 +12,11 @@ function App(){
   function adicionarItem(){
     if(texto.trim() !== ""){
 
+      const agora = `${new Date().getHours()}:${new Date().getMinutes()}`
+
       const novoItem = {
         id:idProxItem,
+        hora:agora,
         conteudo:texto
       }
       setLista([...lista, novoItem])
@@ -48,7 +51,7 @@ function App(){
         {lista.map((item)=>(
           <Card 
           key={item.id} 
-          id={item.id}
+          hora={item.hora}
           text={item.conteudo} 
           remover={(e)=>{removerItem(e,item.id)}} />
         ))}
