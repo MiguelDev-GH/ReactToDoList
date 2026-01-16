@@ -1,6 +1,6 @@
 import ImgCopiar from "./image.png"
 
-function Card({text,remover}){
+function Card({id,text,remover}){
 
     async function copiar(){
         await navigator.clipboard.writeText(text)
@@ -9,6 +9,9 @@ function Card({text,remover}){
     return(
         <>
         <div className="itempc">
+
+            <h1 className="numeracaoCard">{id}</h1>
+
             <div className="card" onClick={remover}>
                 <p>{text}</p>
             </div>

@@ -2,6 +2,8 @@ import { useState } from "react"
 import Card from "./components/card"
 import Header from "./components/header"
 
+let idProxItem = 0;
+
 function App(){
 
   const [texto, setTexto] = useState("")
@@ -11,25 +13,16 @@ function App(){
     if(texto.trim() !== ""){
 
       const novoItem = {
-        id:Date.now(),
+        id:idProxItem,
         conteudo:texto
       }
-
       setLista([...lista, novoItem])
-      setTexto("")
+      idProxItem++
     }
   }
 
   function removerItem(e, ind) {
-
-    const card = e.currentTarget.closest('.itempc'); 
-    if (card) card.classList.add('cardSumirCard');
-
-    setTimeout(() => {
-      setLista(listaAtual => listaAtual.filter((item) => item.id !== ind));
-    }, 500);
-
-
+    setLista(listaAtual => listaAtual.filter((item) => item.id !== ind));
   }
 
   return (
@@ -55,6 +48,7 @@ function App(){
         {lista.map((item)=>(
           <Card 
           key={item.id} 
+          id={item.id}
           text={item.conteudo} 
           remover={(e)=>{removerItem(e,item.id)}} />
         ))}
