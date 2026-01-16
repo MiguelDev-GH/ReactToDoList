@@ -3,9 +3,11 @@ import {TextAlignEnd} from "lucide-react"
 
 function Card({hora,text,remover}){
 
-    async function copiar(){
+    async function copiar(e){
         await navigator.clipboard.writeText(text)
-    }
+        e.target.classList.add("copiarClicado")
+        setTimeout(() => {e.target.classList.remove("copiarClicado");}, 250);
+    }   
 
     return(
         <>
