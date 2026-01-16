@@ -1,4 +1,5 @@
 import ImgCopiar from "./image.png"
+import {TextAlignEnd} from "lucide-react"
 
 function Card({hora,text,remover}){
 
@@ -13,8 +14,10 @@ function Card({hora,text,remover}){
             <h1 className="numeracaoCard">{hora}</h1>
             <div>
                 <div className="card" onClick={remover}>
-                    <p>{text}</p>
+                    <p className="cardTexto">{text}</p>
+                    <TextAlignEnd size={25} className="TextAlignEnd"/>
                 </div>
+
                 <img 
             className="imagemCopiar" 
             src={ImgCopiar} 
