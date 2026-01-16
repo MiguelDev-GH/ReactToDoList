@@ -2,6 +2,8 @@
 
 ### Um pequeno projeto para o aprendizado de React
 
+___
+
 - Ferramentas também usadas:
 
 Lucide React
