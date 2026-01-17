@@ -1,13 +1,3 @@
 # Meu App ToDo
 
 ### Um pequeno projeto para o aprendizado de React
-
-___
-
-- Ferramentas também usadas:
-
-Lucide React
-
-```
-npm install lucide-react
-```
