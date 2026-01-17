@@ -1,7 +1,8 @@
 import { useState } from "react"
 import Card from "./components/card"
 import Header from "./components/header"
-import { Plus, MoveRight } from 'lucide-react'
+import ReactLogo  from "./components/ReactLogo.png"
+import { Plus, ChevronRight } from 'lucide-react'
 
 let idProxItem = 0;
 
@@ -25,6 +26,8 @@ function App(){
       }
       setLista([...lista, novoItem])
       idProxItem++
+    } else {
+      document.querySelector("textarea").style.borderColor = "red"
     }
   }
 
@@ -43,17 +46,20 @@ function App(){
     
       <Header />
 
+      <img src={ReactLogo} alt="React Logo" className="ReactLogoBg" />
+
       <main>
 
       <h1>Meu App ToDo</h1>
 
       <div className="campoSalvar">
 
-        <MoveRight size={25}/>
+        <ChevronRight size={25}/>
 
         <textarea 
         placeholder="O que quero fazer?" 
-        onChange={escrita}></textarea>
+        onChange={escrita}
+        onFocus={(e)=>{e.target.style.borderColor="#1a1a1a"}}></textarea>
         <button onClick={()=>{adicionarItem()}}><Plus size={20}/></button>
         
       </div>
