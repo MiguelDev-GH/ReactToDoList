@@ -59,6 +59,21 @@ textarea:focus{
   justify-content: space-between;
   align-items: center;
   transition: all .5s ease-in;
+  animation: surgirItem 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.itempc::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 30%;
+  background-color: rgba(255, 255, 255, 0.5);
+  filter: blur(30px);
+  opacity: 0;
+  transform: translate(-50%,-50%);
+  animation: surgirItem2 0.4s ease-in-out; 
 }
 
 .itempc > div{
@@ -68,6 +83,23 @@ textarea:focus{
   width: 900px;
   gap:10px;
 }
+
+@keyframes surgirItem {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes surgirItem2 {
+  from{opacity: .8;}
+  to{opacity: 0;}
+}
+
 
 
 .card{
