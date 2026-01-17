@@ -6,7 +6,12 @@ function Card({hora,text,remover}){
     async function copiar(e){
         await navigator.clipboard.writeText(text)
         e.target.classList.add("copiarClicado")
-        setTimeout(() => {e.target.classList.remove("copiarClicado");}, 250);
+        document.body.classList.add("piscarFundo")
+
+        setTimeout(() => {
+            document.body.classList.remove("piscarFundo")
+            e.target.classList.remove("copiarClicado")
+        }, 500);
     }   
 
     return(

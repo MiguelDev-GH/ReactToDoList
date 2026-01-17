@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Card from "./components/card"
 import Header from "./components/header"
+import { Plus, MoveRight } from 'lucide-react'
 
 let idProxItem = 0;
 
@@ -12,7 +13,10 @@ function App(){
   function adicionarItem(){
     if(texto.trim() !== ""){
 
-      const agora = `${new Date().getHours()}:${new Date().getMinutes()}`
+      const horas = new Date().getHours()
+      const minutos = new Date().getMinutes()
+
+      const agora = `${horas < 10 ? "0" + horas : horas}:${minutos < 10 ? "0" + minutos : minutos}`
 
       const novoItem = {
         id:idProxItem,
@@ -28,6 +32,12 @@ function App(){
     setLista(listaAtual => listaAtual.filter((item) => item.id !== ind));
   }
 
+  function escrita(e) {
+    e.target.style.height = "40px";
+    e.target.style.height = `${e.target.scrollHeight}px`;
+    setTexto(e.target.value)
+  }
+
   return (
     <>
     
@@ -39,10 +49,12 @@ function App(){
 
       <div className="campoSalvar">
 
-        <input 
+        <MoveRight size={25}/>
+
+        <textarea 
         placeholder="O que quero fazer?" 
-        onChange={(e)=>{setTexto(e.target.value)}}></input>
-        <button onClick={()=>{adicionarItem()}}> Adicionar </button>
+        onChange={escrita}></textarea>
+        <button onClick={()=>{adicionarItem()}}><Plus size={20}/></button>
         
       </div>
 
