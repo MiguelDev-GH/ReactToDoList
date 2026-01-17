@@ -158,6 +158,7 @@ textarea:focus{
   justify-content: center;
   flex-grow: 5;
   font-weight: 50;
+  font-size: 18px;
 }
 
 .Header > a{
@@ -261,9 +262,18 @@ textarea:focus{
     text-shadow: #ffffff 0 0 3px;
   }
 
-  input{
+  textarea{
     width: 70%;
     overflow-wrap: break-word;
     max-height: 200px;
   }
+
+  h1{
+    font-size: 2em;
+  }
+
+  .Header > a{
+    flex-grow: 50;
+  }
+
 }
